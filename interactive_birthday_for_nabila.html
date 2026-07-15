@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This Only for Nabila! 💖✨</title>
+    
+    <!-- Google Fonts untuk font bertema imut & estetik -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome untuk ikon manis -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==========================================================================
+           BAGIAN CSS (style.css)
+           Warna Utama: Pink Pastel, Soft Yellow, White, Lavender
+           ========================================================================== */
+        
+        :root {
+            --pink-pastel: #FFB7B2;
+            --pink-light: #FFDAC1;
+            --soft-yellow: #FFF9A6;
+            --white: #FFFFFF;
+            --lavender: #E8AEFF;
+            --text-color: #6C5B7B;
+            --dark-pink: #FF6B8B;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        body {
+            font-family: 'Fredoka', 'Quicksand', sans-serif;
+            background-color: #FFF0F5;
+            color: var(--text-color);
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Background dengan elemen glitter, hati, dan bintang bergerak lambat */
+        .ambient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .bg-element {
+            position: absolute;
+            opacity: 0.5;
+            animation: floatPelan 15s infinite linear;
+        }
+
+        @keyframes floatPelan {
+            0% {
+                transform: translateY(110vh) translateX(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-10vh) translateX(50px) rotate(360deg);
+            }
+        }
+
+        /* Container Utama Perjalanan Cerita */
+        .story-container {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            min-height: 90vh;
+            margin: 15px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 35px;
+            border: 4px solid var(--white);
+            box-shadow: 0 15px 40px rgba(255, 183, 178, 0.4);
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+            overflow: hidden;
+            transition: background-color 1s ease, border-color 1s ease;
+        }
+
+        /* Transisi Halaman (Single-Page App) */
+        .page {
+            display: none;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .page.active {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Typography & Custom Titles */
+        h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--dark-pink);
+            text-shadow: 2px 2px 0px var(--white);
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        p {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        /* Tombol Lucu */
+        .btn-cute {
+            background-color: var(--pink-pastel);
+            color: var(--white);
+            border: 3px solid var(--white);
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 0 8px 0px var(--pink-light);
+            transition: all 0.2s ease;
+            margin-top: 25px;
+            outline: none;
+        }
+
+        .btn-cute:active {
+            transform: translateY(4px);
+            box-shadow: 0 4px 0px var(--pink-light);
+        }
+
+        /* Keypad PIN style */
+        .keypad-container {
+            background: var(--white);
+            border-radius: 25px;
+            padding: 20px;
+            box-shadow: 0 10px 25px rgba(255, 183, 178, 0.25);
+            margin-top: 20px;
+            max-width: 280px;
+            width: 100%;
+        }
+
+        .pin-dots {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .pin-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid var(--pink-pastel);
+            transition: background-color 0.2s ease;
+        }
+
+        .pin-dot.active {
+            background-color: var(--dark-pink);
+        }
+
+        .keypad-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .key-btn {
+            background-color: #FFF5F7;
+            border: 2px solid var(--pink-pastel);
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark-pink);
+            cursor: pointer;
+            transition: all 0.1s ease;
+        }
+
+        .key-btn:active {
+            background-color: var(--pink-pastel);
+            color: var(--white);
+            transform: scale(0.9);
+        }
+
+        /* Animasi Shake untuk PIN salah */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-10px); }
+            40%, 80% { transform: translateX(10px); }
+        }
+
+        .shake-animation {
+            animation: shake 0.5s ease-in-out;
+        }
+
+        /* Cute Music Player */
+        .music-disk-container {
+            position: relative;
+            margin: 30px 0;
+        }
+
+        .music-disk {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #444 30%, #111 31%, #111 60%, var(--pink-pastel) 61%);
+            border: 8px solid var(--white);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .music-disk::after {
+            content: '';
+            width: 25px;
+            height: 25px;
+            background-color: var(--white);
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .disk-spin {
+            animation: spin 6s linear infinite;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        .music-notes {
+            position: absolute;
+            font-size: 1.5rem;
+            color: var(--dark-pink);
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        /* Ilustrasi Kue 2D */
+        .cake-wrapper {
+            position: relative;
+            width: 200px;
+            height: 220px;
+            margin-top: 20px;
+        }
+
+        .cake-tier {
+            position: absolute;
+            background: #FFF;
+            border: 4px solid var(--pink-pastel);
+            border-radius: 12px 12px 4px 4px;
+        }
+
+        .cake-bottom {
+            width: 180px;
+            height: 70px;
+            bottom: 10px;
+            left: 10px;
+            background-color: var(--pink-light);
+        }
+
+        .cake-top {
+            width: 130px;
+            height: 60px;
+            bottom: 80px;
+            left: 35px;
+            background-color: var(--white);
+            z-index: 2;
+        }
+
+        /* Cream & Strawberry */
+        .cream-drip {
+            position: absolute;
+            width: 100%;
+            height: 15px;
+            top: -2px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .drip {
+            width: 20px;
+            height: 15px;
+            background-color: var(--lavender);
+            border-radius: 0 0 10px 10px;
+        }
+
+        .strawberry {
+            position: absolute;
+            width: 25px;
+            height: 30px;
+            background-color: #FF4E50;
+            border-radius: 50% 50% 40% 40%;
+            top: -25px;
+            left: calc(50% - 12.5px);
+            z-index: 3;
+            animation: floatStrawberry 2s infinite alternate ease-in-out;
+        }
+
+        @keyframes floatStrawberry {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-4px); }
+        }
+
+        /* Candle & Flame */
+        .candle {
+            position: absolute;
+            width: 12px;
+            height: 45px;
+            background: repeating-linear-gradient(45deg, var(--soft-yellow), var(--soft-yellow) 5px, var(--pink-pastel) 5px, var(--pink-pastel) 10px);
+            bottom: 140px;
+            left: calc(50% - 6px);
+            z-index: 4;
+            border-radius: 3px;
+        }
+
+        .flame {
+            position: absolute;
+            width: 16px;
+            height: 26px;
+            background: radial-gradient(ellipse at bottom, #FF8008, #FFC837 70%);
+            border-radius: 50% 50% 20% 20%;
+            bottom: 185px;
+            left: calc(50% - 8px);
+            z-index: 5;
+            box-shadow: 0 0 10px rgba(255,200,55,0.8);
+            animation: flicker 0.15s infinite alternate;
+            transform-origin: bottom center;
+        }
+
+        .flame.off {
+            display: none !important;
+        }
+
+        @keyframes flicker {
+            0% { transform: scale(1) rotate(-1deg); }
+            100% { transform: scale(1.1) rotate(1deg); }
+        }
+
+        /* Asap saat lilin ditiup */
+        .smoke {
+            position: absolute;
+            width: 8px;
+            height: 20px;
+            background: rgba(220, 220, 220, 0.6);
+            border-radius: 50%;
+            bottom: 185px;
+            left: calc(50% - 4px);
+            opacity: 0;
+            z-index: 6;
+        }
+
+        .smoke.puff {
+            animation: smokeRise 1.5s ease-out forwards;
+        }
+
+        @keyframes smokeRise {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-40px) scale(2); opacity: 0; filter: blur(2px); }
+        }
+
+        /* Typist effect */
+        .typing-box {
+            min-height: 60px;
+            margin: 15px 0;
+            font-size: 1.15rem;
+            color: var(--text-color);
+        }
+
+        /* Balon */
+        .balloon-stage {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px dashed var(--pink-pastel);
+        }
+
+        .balloon {
+            position: absolute;
+            width: 50px;
+            height: 65px;
+            background-color: var(--pink-pastel);
+            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            cursor: pointer;
+            box-shadow: inset -5px -5px 0 rgba(0,0,0,0.07);
+            animation: floatBalloon 6s infinite linear;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            touch-action: none;
+        }
+
+        .balloon::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: calc(50% - 3px);
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            border-top: 8px solid var(--pink-pastel);
+        }
+
+        .balloon-string {
+            position: absolute;
+            width: 2px;
+            height: 40px;
+            background-color: rgba(0,0,0,0.1);
+            bottom: -48px;
+            left: calc(50% - 1px);
+        }
+
+        @keyframes floatBalloon {
+            0% { transform: translateY(380px) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(10deg); }
+        }
+
+        .pop-txt {
+            position: absolute;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark-pink);
+            pointer-events: none;
+            animation: popOut 0.4s ease-out forwards;
+        }
+
+        @keyframes popOut {
+            0% { transform: scale(0.3); opacity: 1; }
+            100% { transform: scale(1.5) translateY(-20px); opacity: 0; }
+        }
+
+        /* Gift Box & Envelope */
+        .gift-container {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin: 30px 0;
+            cursor: pointer;
+        }
+
+        .gift-box {
+            width: 100px;
+            height: 100px;
+            background-color: var(--pink-pastel);
+            border-radius: 12px;
+            position: absolute;
+            bottom: 10px;
+            left: 40px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .gift-box::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 100%;
+            background-color: var(--lavender);
+            left: 40px;
+        }
+
+        .gift-lid {
+            width: 110px;
+            height: 30px;
+            background-color: var(--pink-light);
+            border-radius: 8px;
+            position: absolute;
+            bottom: 100px;
+            left: 35px;
+            z-index: 2;
+            transition: transform 0.5s ease;
+        }
+
+        .gift-lid::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 100%;
+            background-color: var(--lavender);
+            left: 45px;
+        }
+
+        .gift-ribbon-bow {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: var(--lavender);
+            border-radius: 50% 50% 0 50%;
+            transform: rotate(-45deg);
+            top: -25px;
+            left: 35px;
+        }
+
+        .gift-ribbon-bow.right {
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(45deg);
+            left: 65px;
+        }
+
+        @keyframes giftShake {
+            0%, 100% { transform: rotate(0); }
+            20%, 60% { transform: rotate(-8deg); }
+            40%, 80% { transform: rotate(8deg); }
+        }
+
+        .gift-shake {
+            animation: giftShake 1.5s infinite ease-in-out;
+        }
+
+        /* Amplop & Surat */
+        .envelope-container {
+            display: none;
+            width: 140px;
+            height: 100px;
+            background-color: #FFF;
+            border: 3px solid var(--pink-pastel);
+            border-radius: 10px;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            cursor: pointer;
+            z-index: 5;
+            transition: all 0.5s ease;
+        }
+
+        /* Desain Kertas Surat */
+        .letter-paper {
+            width: 100%;
+            background-color: #FFFDF0;
+            border: 3px solid var(--pink-pastel);
+            border-radius: 20px;
+            padding: 25px 20px;
+            box-shadow: 0 10px 30px rgba(255, 183, 178, 0.3);
+            position: relative;
+            max-height: 450px;
+            overflow-y: auto;
+            text-align: left;
+        }
+
+        .letter-ribbon {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--pink-pastel);
+            color: var(--white);
+            padding: 4px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+
+        .letter-flower {
+            position: absolute;
+            font-size: 1.1rem;
+            color: var(--soft-yellow);
+            top: 15px;
+            right: 20px;
+        }
+
+        .letter-paragraph {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            margin-bottom: 14px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .letter-paragraph.reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar untuk surat */
+        .letter-paper::-webkit-scrollbar {
+            width: 6px;
+        }
+        .letter-paper::-webkit-scrollbar-track {
+            background: #FFFDF0;
+        }
+        .letter-paper::-webkit-scrollbar-thumb {
+            background-color: var(--pink-pastel);
+            border-radius: 10px;
+        }
+
+        /* Dark Sky Ending Transition */
+        .night-mode {
+            background-color: #1A1235 !important;
+            border-color: #2E1B4E !important;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5) !important;
+        }
+
+        .night-mode .bg-element {
+            color: #FFE66D !important;
+        }
+
+        .glow-text-yellow {
+            color: #FFE66D !important;
+            text-shadow: 0 0 15px rgba(255, 230, 109, 0.8) !important;
+        }
+
+        /* Floating Hearts, Sparkles, and Balloons */
+        .floating-heart {
+            position: absolute;
+            font-size: 1.5rem;
+            color: var(--dark-pink);
+            pointer-events: none;
+            z-index: 10;
+            animation: flyUp 4s forwards ease-in;
+        }
+
+        @keyframes flyUp {
+            0% { transform: translateY(0) scale(0.5); opacity: 1; }
+            100% { transform: translateY(-400px) scale(1.5); opacity: 0; }
+        }
+
+        /* Fireworks canvas element */
+        #fireworksCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 4;
+            border-radius: 35px;
+        }
+
+        /* Responsive HP styling */
+        @media (max-width: 480px) {
+            .story-container {
+                border-radius: 25px;
+                padding: 20px 15px;
+                min-height: 85vh;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            p {
+                font-size: 0.95rem;
+            }
+            .keypad-container {
+                max-width: 250px;
+            }
+            .key-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.15rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Sparkles & Hearts Background -->
+    <div class="ambient-bg" id="ambientBg"></div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="story-container" id="storyContainer">
+        
+        <!-- Canvas khusus Kembang Api (Halaman Ending) -->
+        <canvas id="fireworksCanvas"></canvas>
+
+        <!-- ==========================================
+             HALAMAN 1: Kunci PIN Pengaman
+             ========================================== -->
+        <section class="page active" id="page1">
+            <h1>This only for Nabila! 🎀</h1>
+            <p style="margin-top: 5px;">Enter a passcode to unlock your world</p>
+            
+            <div class="keypad-container" id="keypadWrapper">
+                <!-- Titik penanda PIN -->
+                <div class="pin-dots">
+                    <div class="pin-dot"></div>
+                    <div class="pin-dot"></div>
+                    <div class="pin-dot"></div>
+                    <div class="pin-dot"></div>
+                </div>
+
+                <!-- Angka keypad -->
+                <div class="keypad-grid">
+                    <button class="key-btn" onclick="pressPin('7')">7</button>
+                    <button class="key-btn" onclick="pressPin('8')">8</button>
+                    <button class="key-btn" onclick="pressPin('9')">9</button>
+                    
+                    <button class="key-btn" onclick="pressPin('4')">4</button>
+                    <button class="key-btn" onclick="pressPin('5')">5</button>
+                    <button class="key-btn" onclick="pressPin('6')">6</button>
+                    
+                    <button class="key-btn" onclick="pressPin('1')">1</button>
+                    <button class="key-btn" onclick="pressPin('2')">2</button>
+                    <button class="key-btn" onclick="pressPin('3')">3</button>
+                    
+                    <button class="key-btn" onclick="pressPin('back')"><i class="fa-solid fa-delete-left"></i></button>
+                    <button class="key-btn" onclick="pressPin('0')">0</button>
+                    <button class="key-btn" onclick="pressPin('ok')"><i class="fa-solid fa-check"></i></button>
+                </div>
+            </div>
+
+            <!-- Pesan kesalahan tersembunyi -->
+            <p id="pinMsg" style="color: #FF4E50; margin-top: 15px; font-weight: bold; min-height: 24px;"></p>
+
+            <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 20px;">
+                <i class="fa-solid fa-lightbulb"></i> Hint: "Hari ini" (Format DDMM)
+            </p>
+        </section>
+
+        <!-- ==========================================
+             HALAMAN 2: Pemutar Musik Estetik
+             ========================================== -->
+        <section class="page" id="page2">
+            <h1>Play this song! 🎵</h1>
+            <p>Nabila, nyalakan musiknya untuk memulai keajaiban ini~</p>
+
+            <div class="music-disk-container">
+                <div class="music-disk" id="musicDisc">
+                    <!-- Ikon piringan hitam lucu -->
+                </div>
+            </div>
+
+            <button class="btn-cute" id="btnPlayMusic" onclick="togglePlayMusic()">
+                <i class="fa-solid fa-play mr-2"></i> Play Music 🎶
+            </button>
+
+            <!-- Tombol Next tersembunyi, aktif setelah musik dinyalakan -->
+            <button class="btn-cute" id="btnNextH2" style="display: none; background-color: var(--lavender);" onclick="nextPage(3)">
+                Next Journey <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </section>
+
+        <!-- ==========================================
+             HALAMAN 3: Munculnya Kue Ulang Tahun
+             ========================================= -->
+        <section class="page" id="page3">
+            <div class="typing-box" id="typingText"></div>
+            
+            <div class="cake-wrapper">
+                <!-- Tiup Lilin -->
+                <div class="candle" id="mainCandle"></div>
+                <div class="flame" id="mainFlame"></div>
+                <div class="smoke" id="candleSmoke"></div>
+
+                <!-- Bagian Atas Kue -->
+                <div class="cake-tier cake-top">
+                    <div class="cream-drip">
+                        <div class="drip"></div>
+                        <div class="drip"></div>
+                        <div class="drip"></div>
+                        <div class="drip"></div>
+                    </div>
+                    <div class="strawberry"></div>
+                </div>
+
+                <!-- Bagian Bawah Kue -->
+                <div class="cake-tier cake-bottom">
+                    <div class="cream-drip">
+                        <div class="drip" style="background-color: var(--soft-yellow);"></div>
+                        <div class="drip" style="background-color: var(--soft-yellow);"></div>
+                        <div class="drip" style="background-color: var(--soft-yellow);"></div>
+                        <div class="drip" style="background-color: var(--soft-yellow);"></div>
+                        <div class="drip" style="background-color: var(--soft-yellow);"></div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn-cute" id="btnNextH3" style="display: none;" onclick="nextPage(4)">
+                Blow the Candle! <i class="fa-solid fa-wind"></i>
+            </button>
+        </section>
+
+        <!-- ==========================================
+             HALAMAN 4: Meniup Lilin (Mic / Tap)
+             ========================================== -->
+        <section class="page" id="page4">
+            <h1>Blow the candle! 🎂</h1>
+            <p style="margin-bottom: 20px;">Silakan tiup mikrofon HP/Laptop-mu, atau klik tombol di bawah untuk memadamkan lilin!</p>
+            
+            <div style="font-size: 3rem; margin: 20px 0; animation: scaleUp 1.5s infinite alternate ease-in-out;">
+                🕯️💨
+            </div>
+
+            <button class="btn-cute" id="btnTapBlow" onclick="blowCandleSuccess()">
+                <i class="fa-solid fa-wind"></i> Tap to Blow!
+            </button>
+            
+            <!-- Detektor Mic Status -->
+            <p id="micStatus" style="font-size: 0.85rem; color: var(--pink-pastel); margin-top: 15px;">
+                <i class="fa-solid fa-microphone"></i> Listening to your blow... (Izinkan akses jika muncul)
+            </p>
+        </section>
+
+        <!-- ==========================================
+             HALAMAN 5: Letuskan 21 Balon
+             ========================================== -->
+        <section class="page" id="page5">
+            <h1>Pop the Balloons! 🎈</h1>
+            <p>Ayo letuskan semua 21 balon pink lucu di bawah ini!</p>
+            <p style="font-weight: bold; margin-bottom: 15px;" id="balloonCounter">Tersisa: 21 Balon</p>
+
+            <div class="balloon-stage" id="balloonStage">
+                <!-- Balon-balon akan dicreate via JS -->
+            </div>
+
+            <button class="btn-cute" id="btnNextH5" style="display: none; width: 100%;" onclick="nextPage(6)">
+                Continue Journey ✨
+            </button>
+        </section>
+
+        <!-- ==========================================
+             HALAMAN 6: Membuka Kotak Kado
+             ========================================== -->
+        <section class="page" id="page6">
+            <h1>I have something for you... 🎁</h1>
+            <p>Ketuk kotak kado pink di bawah untuk membukanya!</p>
+
+            <div class="gift-container" id="giftContainer" onclick="openGift()">
+                <!-- Pita atas -->
+                <div class="gift-ribbon-bow"></div>
+                <div class="gift-ribbon-bow right"></div>
+                <!-- Penutup -->
+                <div class="gift-lid" id="giftLid"></div>
+                <!-- Kotak utama -->
+                <div class="gift-box gift-shake" id="giftBoxMain"></div>
+
+                <!-- Amplop dalam kado -->
+                <div class="envelope-container" id="insideEnvelope" onclick="openEnvelope(event)">
+                    <div style="text-align: center; line-height: 100px; font-size: 2.2rem;">✉️</div>
+                </div>
+            </div>
+
+            <p id="giftHint" style="font-size: 0.9rem; color: var(--pink-pastel); font-weight: bold;">Tap Box! 🎁</p>
+        </section>
+
+        <!-- ==========================================
+             HALAMAN 7: Membaca Surat dari Naya
+             ========================================== -->
+        <section class="page" id="page7">
+            <div class="letter-paper">
+                <div class="letter-ribbon">For Nabila 🎀</div>
+                <div class="letter-flower"><i class="fa-solid fa-leaf animate-bounce"></i></div>
+                
+                <div class="letter-paragraph" id="lp1">OMOOO OMOO ADA YANG ULTAH NICHH👀🫣</div>
+                <div class="letter-paragraph" id="lp2">saengil chukahaee nabilungg🥳🫰🏻</div>
+                <div class="letter-paragraph" id="lp3">Doa ak buat kamu semoga sehat selalu, makin dewasa n tetep jadi bila yang ak kenall yaaw💓</div>
+                <div class="letter-paragraph" id="lp4">semogaaa di umur bila sekarang everything gets better for youu yaa sengg🫶🏻 apa pun yang lagi kamu usahain semogaa dimudahkan n dilancarin🌟</div>
+                <div class="letter-paragraph" id="lp5">kamu salah satu orang hebatt yang ak temui🫵🏻, ak selalu amaze sama sikap dewasa kamu dalam melakukan sesuatu (amaze juga dibalik kedewasaan anak pertama enih ternyata ada jiwa2 bokemnya didalamnya wkwkwk🙂‍↔️)</div>
+                <div class="letter-paragraph" id="lp6">jangan bosen berteman sama naya yang dontol enih yahh☺️</div>
+                <div class="letter-paragraph" id="lp7">banyak belajar banget ak dari kamu mulai dari pertama kuliah kamu satu-satunya temen yang ak kenal dan ak percaya.</div>
+                <div class="letter-paragraph" id="lp8">Kalo diinget-inget jaman kita kuliah semester 1, ga nyangka sekarang kita udah mau semester 5 ajah🥹</div>
+                <div class="letter-paragraph" id="lp9">You did so well sampai sejauh inii💗</div>
+                <div class="letter-paragraph" id="lp10">Semogaaa ke depannya kamu dapet banyakk hal baik, selalu dikelilingi oleh orang-orang yang tulus, dan selalu ada di tempat yang bikin kamu nyaman🫂</div>
+                <div class="letter-paragraph" id="lp11">(kalo ada yang mau Nabila ceritain, ak always ready buat jadi teman cerita kamuh🫵)</div>
+                <div class="letter-paragraph" id="lp12">Stay healthy and be happy always yaa sengg✨</div>
+                <div class="letter-paragraph" id="lp13">Ak senengg bangett bisa kenal dekat sama kamuuw🙆🏻‍♀️</div>
+                <div class="letter-paragraph" id="lp14">Pokoknya doa terbaik buat Bilak🎂</div>
+                <div class="letter-paragraph" id="lp15">Once again,<br><b>Happy Birthday Bilaak🫶🏻</b></div>
+                <div class="letter-paragraph" id="lp16" style="text-align: right; font-weight: bold; color: var(--dark-pink);">— Naya 💕</div>
+            </div>
+
+            <button class="btn-cute" id="btnNextH7" style="display: none; width: 100%;" onclick="finishJourney()">
+                One Last Surprise ✨
+            </button>
+        </section>
+
+        <!-- ==========================================
+             HALAMAN ENDING: Langit Malam Kembang Api
+             ========================================== -->
+        <section class="page" id="pageEnding">
+            <h1 class="glow-text-yellow" style="font-size: 2.8rem; margin-bottom: 5px;">Happy Birthday</h1>
+            <h1 class="glow-text-yellow" style="font-size: 3.2rem; color: var(--white); margin-bottom: 25px;">Nabila 🥳🌟</h1>
+            
+            <p style="color: #ECEFF1; font-size: 1.15rem; margin-bottom: 12px; font-family: 'Fredoka';">
+                Thanks for being my best friend 🙆🏻‍♀️
+            </p>
+            <p style="color: #B0BEC5; font-size: 1rem; italic; margin-bottom: 30px;">
+                See you in another beautiful year ✨
+            </p>
+
+            <button class="btn-cute" style="background-color: var(--white); color: #1A1235; border-color: var(--pink-pastel); box-shadow: 0 8px 0px rgba(255,255,255,0.2);" onclick="resetJourney()">
+                <i class="fa-solid fa-rotate-right"></i> Replay Journey
+            </button>
+        </section>
+
+    </div>
+
+    <script>
+        /* ==========================================================================
+           BAGIAN JAVASCRIPT (script.js)
+           Sistem Interaktif, Musik, Kembang Api, Deteksi Mic Tiupan, & Game Balon
+           ========================================================================== */
+
+        // State Global Aplikasi
+        let currentPinInput = '';
+        const targetPin = '1507'; // Tanggal Lahir Nabila (15 Juli -> 1507)
+        let currentPageIndex = 1;
+        let isMusicPlaying = false;
+        let audioCtx = null;
+        let musicLoopId = null;
+        let activeBalloons = 21;
+        let totalBalloonsPopped = 0;
+        let isCandleBlown = false;
+
+        // Inisialisasi latar belakang ambient (glitter, hati pelan)
+        window.onload = function() {
+            createAmbientEffects();
+        };
+
+        // --- DEKORASI LATAR BELAKANG ---
+        function createAmbientEffects() {
+            const container = document.getElementById('ambientBg');
+            const icons = ['🌸', '💖', '✨', '⭐', '🎈'];
+            
+            for (let i = 0; i < 25; i++) {
+                const el = document.createElement('div');
+                el.className = 'bg-element';
+                el.innerText = icons[Math.floor(Math.random() * icons.length)];
+                el.style.left = Math.random() * 100 + 'vw';
+                el.style.top = Math.random() * 100 + 'vh';
+                el.style.fontSize = (Math.random() * 15 + 15) + 'px';
+                el.style.animationDelay = (Math.random() * 15) + 's';
+                el.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                container.appendChild(el);
+            }
+        }
+
+        // --- FLOATING HEARTS & SPARKLES ANIMATION TRIGGER ---
+        function triggerHeartsAndSparkles() {
+            const container = document.body;
+            const symbols = ['💖', '💕', '✨', '🌸', '🍬'];
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const el = document.createElement('div');
+                    el.className = 'floating-heart';
+                    el.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+                    el.style.left = (Math.random() * 80 + 10) + 'vw';
+                    el.style.bottom = '10vh';
+                    el.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    container.appendChild(el);
+                    
+                    // Bersihkan elemen setelah selesai animasi
+                    setTimeout(() => el.remove(), 4000);
+                }, i * 150);
+            }
+        }
+
+        // --- KONTROL NAVIGASI JALAN CERITA ---
+        function nextPage(targetPageIndex) {
+            const currentPage = document.querySelector('.page.active');
+            const targetPage = document.getElementById(`page${targetPageIndex}`);
+
+            if (currentPage) {
+                currentPage.style.opacity = '0';
+                currentPage.style.transform = 'translateY(-20px)';
+                
+                setTimeout(() => {
+                    currentPage.classList.remove('active');
+                    targetPage.classList.add('active');
+                    
+                    // Trigger reflow
+                    targetPage.offsetHeight;
+                    
+                    targetPage.style.opacity = '1';
+                    targetPage.style.transform = 'translateY(0)';
+                    triggerHeartsAndSparkles();
+                }, 400);
+            }
+
+            // Aksi Tambahan berdasarkan Halaman
+            if (targetPageIndex === 3) {
+                runTypingShowCake();
+            } else if (targetPageIndex === 4) {
+                initMicDetection();
+            } else if (targetPageIndex === 5) {
+                setupBalloonStage();
+            }
+        }
+
+        // --- HALAMAN 1: LOGIKA KEYPAD PIN ---
+        function pressPin(val) {
+            const dots = document.querySelectorAll('.pin-dot');
+            const msg = document.getElementById('pinMsg');
+            const keypad = document.getElementById('keypadWrapper');
+
+            msg.innerText = ''; // Hapus pesan sebelumnya
+
+            if (val === 'back') {
+                if (currentPinInput.length > 0) {
+                    currentPinInput = currentPinInput.slice(0, -1);
+                }
+            } else if (val === 'ok') {
+                if (currentPinInput === targetPin) {
+                    // PIN Sukses! Tampilkan efek sukses sebelum beralih
+                    msg.style.color = '#4CAF50';
+                    msg.innerText = 'Perfect! Membuka kado... 🎉';
+                    triggerHeartsAndSparkles();
+                    setTimeout(() => {
+                        nextPage(2);
+                    }, 1200);
+                } else {
+                    // PIN Salah! Efek guncang kartu
+                    keypad.classList.add('shake-animation');
+                    msg.style.color = '#FF4E50';
+                    msg.innerText = 'Oops~ Try again.';
+                    
+                    // Reset input
+                    currentPinInput = '';
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    
+                    setTimeout(() => {
+                        keypad.classList.remove('shake-animation');
+                    }, 500);
+                }
+                return;
+            } else {
+                if (currentPinInput.length < 4) {
+                    currentPinInput += val;
+                }
+            }
+
+            // Update visual titik-titik bulat PIN
+            dots.forEach((dot, index) => {
+                if (index < currentPinInput.length) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // --- HALAMAN 2: PEMUTAR MUSIK SINTETIK ---
+        // Membuat nada instrumen Happy Birthday dengan Web Audio API
+        const bdayTune = [
+            { f: 261.63, d: 400 }, { f: 261.63, d: 200 }, { f: 293.66, d: 600 },
+            { f: 261.63, d: 600 }, { f: 349.23, d: 600 }, { f: 329.63, d: 1000 },
+            { f: 0, d: 200 },
+            { f: 261.63, d: 400 }, { f: 261.63, d: 200 }, { f: 293.66, d: 600 },
+            { f: 261.63, d: 600 }, { f: 392.00, d: 600 }, { f: 349.23, d: 1000 },
+            { f: 0, d: 200 },
+            { f: 261.63, d: 400 }, { f: 261.63, d: 200 }, { f: 523.25, d: 600 },
+            { f: 440.00, d: 600 }, { f: 349.23, d: 600 }, { f: 329.63, d: 600 },
+            { f: 293.66, d: 1000 }, { f: 0, d: 200 },
+            { f: 466.16, d: 400 }, { f: 466.16, d: 200 }, { f: 440.00, d: 600 },
+            { f: 349.23, d: 600 }, { f: 392.00, d: 600 }, { f: 349.23, d: 1200 }
+        ];
+
+        function playRetroBday() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            let currentIndex = 0;
+            function playNote() {
+                if (!isMusicPlaying) return;
+                
+                const note = bdayTune[currentIndex];
+                if (note.f > 0) {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    
+                    // Sound wave lembut (triangle)
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(note.f, audioCtx.currentTime);
+                    
+                    gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + (note.d / 1000));
+                    
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + (note.d / 1000));
+                    
+                    // Floating music notes effect
+                    createMusicNoteVisual();
+                }
+
+                currentIndex = (currentIndex + 1) % bdayTune.length;
+                musicLoopId = setTimeout(playNote, note.d + 50);
+            }
+            playNote();
+        }
+
+        function createMusicNoteVisual() {
+            const disk = document.getElementById('musicDisc');
+            const note = document.createElement('div');
+            note.className = 'music-notes';
+            note.innerHTML = '<i class="fa-solid fa-music"></i>';
+            note.style.left = Math.random() * 100 + 'px';
+            note.style.top = Math.random() * 100 + 'px';
+            disk.appendChild(note);
+
+            // Animate floating note
+            note.animate([
+                { transform: 'translateY(0) scale(0.5)', opacity: 0 },
+                { opacity: 1, offset: 0.2 },
+                { transform: 'translateY(-60px) scale(1.2)', opacity: 0 }
+            ], {
+                duration: 2000,
+                easing: 'ease-out'
+            });
+
+            setTimeout(() => note.remove(), 2000);
+        }
+
+        function togglePlayMusic() {
+            const btn = document.getElementById('btnPlayMusic');
+            const disc = document.getElementById('musicDisc');
+            const btnNext = document.getElementById('btnNextH2');
+
+            if (isMusicPlaying) {
+                isMusicPlaying = false;
+                clearTimeout(musicLoopId);
+                disc.classList.remove('disk-spin');
+                btn.innerHTML = '<i class="fa-solid fa-play mr-2"></i> Play Music 🎶';
+            } else {
+                isMusicPlaying = true;
+                disc.classList.add('disk-spin');
+                btn.innerHTML = '<i class="fa-solid fa-pause mr-2"></i> Pause Music';
+                playRetroBday();
+                
+                // Munculkan tombol next setelah beberapa detik menikmati lagu
+                setTimeout(() => {
+                    btnNext.style.display = 'inline-block';
+                }, 2000);
+            }
+        }
+
+        // --- HALAMAN 3: TULISAN MENGETIK & KUE ---
+        function runTypingShowCake() {
+            const typingBox = document.getElementById('typingText');
+            const introStr = "Today it's your special day because...";
+            let index = 0;
+            
+            typingBox.innerText = "";
+            
+            function type() {
+                if (index < introStr.length) {
+                    typingBox.innerHTML += introStr.charAt(index);
+                    index++;
+                    setTimeout(type, 70);
+                } else {
+                    // Setelah teks pertama selesai diketik, ubah dengan transisi fade
+                    setTimeout(() => {
+                        typingBox.animate([
+                            { opacity: 1 },
+                            { opacity: 0 }
+                        ], { duration: 600, fill: 'forwards' });
+
+                        setTimeout(() => {
+                            typingBox.innerHTML = "✨ It's your birthday!! ✨";
+                            typingBox.style.fontSize = "1.5rem";
+                            typingBox.style.fontWeight = "bold";
+                            typingBox.style.color = "var(--dark-pink)";
+                            typingBox.animate([
+                                { opacity: 0, transform: 'scale(0.9)' },
+                                { opacity: 1, transform: 'scale(1)' }
+                            ], { duration: 600, fill: 'forwards' });
+                            
+                            // Tampilkan tombol lanjut ditiup
+                            document.getElementById('btnNextH3').style.display = 'inline-block';
+                        }, 700);
+                    }, 1500);
+                }
+            }
+            type();
+        }
+
+        // --- HALAMAN 4: DETEKSI TIUPAN LILIN (AUDIO API) ---
+        let micStream = null;
+        let audioAnalyzer = null;
+        let micProcessorId = null;
+
+        function initMicDetection() {
+            const micStatus = document.getElementById('micStatus');
+            
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(stream => {
+                    micStream = stream;
+                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    const source = audioContext.createMediaStreamSource(stream);
+                    audioAnalyzer = audioContext.createAnalyser();
+                    audioAnalyzer.fftSize = 256;
+                    source.connect(audioAnalyzer);
+                    
+                    const bufferLength = audioAnalyzer.frequencyBinCount;
+                    const dataArray = new Uint8Array(bufferLength);
+                    
+                    micStatus.innerHTML = '<i class="fa-solid fa-microphone-lines animate-pulse"></i> Mic active. Silakan tiup kuat-kuat!';
+
+                    function detectBlow() {
+                        if (isCandleBlown) return;
+                        audioAnalyzer.getByteFrequencyData(dataArray);
+                        
+                        // Menghitung volume rata-rata frekuensi tinggi (suara tiupan)
+                        let sum = 0;
+                        for (let i = 0; i < bufferLength; i++) {
+                            sum += dataArray[i];
+                        }
+                        let volume = sum / bufferLength;
+                        
+                        // Threshold tiupan kencang
+                        if (volume > 65) {
+                            blowCandleSuccess();
+                            return;
+                        }
+                        micProcessorId = requestAnimationFrame(detectBlow);
+                    }
+                    detectBlow();
+                })
+                .catch(err => {
+                    console.log("Mic access denied or error:", err);
+                    micStatus.innerHTML = '<i class="fa-solid fa-microphone-slash"></i> Klik tombol "Tap to Blow" di bawah untuk meniup!';
+                });
+            } else {
+                micStatus.innerHTML = 'Browser tidak mendukung deteksi suara. Gunakan tombol di bawah!';
+            }
+        }
+
+        function blowCandleSuccess() {
+            if (isCandleBlown) return;
+            isCandleBlown = true;
+            
+            // Hentikan proses mic
+            if (micProcessorId) cancelAnimationFrame(micProcessorId);
+            if (micStream) {
+                micStream.getTracks().forEach(track => track.stop());
+            }
+
+            // Animasi lilin padam
+            const flame = document.getElementById('mainFlame');
+            const smoke = document.getElementById('candleSmoke');
+            
+            flame.classList.add('off');
+            smoke.classList.add('puff');
+
+            // Sound Effect Tiupan Sintetik
+            playBlowSound();
+
+            triggerHeartsAndSparkles();
+            
+            // Berikan notifikasi kecil dan pindah halaman
+            const status = document.getElementById('micStatus');
+            if (status) status.innerHTML = "🎉 HUWAA TIUPAN KAMU BERHASIL! 🎉";
+
+            setTimeout(() => {
+                nextPage(5);
+            }, 2000);
+        }
+
+        function playBlowSound() {
+            if (!audioCtx) return;
+            const bufferSize = audioCtx.sampleRate * 0.4;
+            const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+            const data = buffer.getChannelData(0);
+            for (let i = 0; i < bufferSize; i++) {
+                data[i] = Math.random() * 2 - 1; // Noise putih
+            }
+            const noise = audioCtx.createBufferSource();
+            noise.buffer = buffer;
+            const filter = audioCtx.createBiquadFilter();
+            filter.type = 'lowpass';
+            filter.frequency.value = 400;
+            
+            const gain = audioCtx.createGain();
+            gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
+
+            noise.connect(filter);
+            filter.connect(gain);
+            gain.connect(audioCtx.destination);
+            noise.start();
+        }
+
+        // --- HALAMAN 5: LETUSAN BALON GAME ---
+        function setupBalloonStage() {
+            const stage = document.getElementById('balloonStage');
+            stage.innerHTML = "";
+            totalBalloonsPopped = 0;
+            activeBalloons = 21;
+            document.getElementById('balloonCounter').innerText = "Tersisa: 21 Balon";
+            document.getElementById('btnNextH5').style.display = 'none';
+
+            // Membangun persis 21 balon pastel
+            const colors = ['#FFB7B2', '#FFDAC1', '#FFF9A6', '#E8AEFF', '#FF80A9', '#B2F7EF'];
+
+            for (let i = 0; i < 21; i++) {
+                const balloon = document.createElement('div');
+                balloon.className = 'balloon';
+                balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Atur posisi sebar acak secara horizontal
+                balloon.style.left = (Math.random() * 75 + 5) + '%';
+                // Delay acak agar balon naik bergantian
+                balloon.style.animationDelay = (Math.random() * 5) + 's';
+                // Kecepatan melayang acak
+                balloon.style.animationDuration = (Math.random() * 4 + 4) + 's';
+
+                // String balon
+                const string = document.createElement('div');
+                string.className = 'balloon-string';
+                balloon.appendChild(string);
+
+                // Event Listener Klik / Sentuh Balon
+                balloon.addEventListener('pointerdown', (e) => {
+                    popBalloon(balloon, e);
+                });
+
+                stage.appendChild(balloon);
+            }
+        }
+
+        function popBalloon(balloonEl, event) {
+            // Animasi POP text
+            const stage = document.getElementById('balloonStage');
+            const rect = balloonEl.getBoundingClientRect();
+            const stageRect = stage.getBoundingClientRect();
+            const x = rect.left - stageRect.left + (rect.width / 2);
+            const y = rect.top - stageRect.top + (rect.height / 2);
+
+            const popTxt = document.createElement('div');
+            popTxt.className = 'pop-txt';
+            popTxt.innerText = 'POP!';
+            popTxt.style.left = x + 'px';
+            popTxt.style.top = y + 'px';
+            stage.appendChild(popTxt);
+
+            // Audio Efek Meletus Sintetik
+            playPopSound();
+
+            // Hapus balon
+            balloonEl.remove();
+            totalBalloonsPopped++;
+            activeBalloons--;
+
+            document.getElementById('balloonCounter').innerText = `Tersisa: ${activeBalloons} Balon`;
+
+            // Hapus text 'pop' setelah selesai animasi
+            setTimeout(() => popTxt.remove(), 400);
+
+            // Jika semua 21 balon meletus
+            if (totalBalloonsPopped === 21) {
+                document.getElementById('balloonCounter').innerHTML = "🎉 Slayyy! Semua balon pecah! 🎉";
+                document.getElementById('btnNextH5').style.display = 'block';
+            }
+        }
+
+        function playPopSound() {
+            if (!audioCtx) return;
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(150, audioCtx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(1200, audioCtx.currentTime + 0.08);
+
+            gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
+
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.08);
+        }
+
+        // --- HALAMAN 6: MEMBUKA KADO ---
+        let isGiftOpened = false;
+
+        function openGift() {
+            if (isGiftOpened) return;
+            isGiftOpened = true;
+
+            const lid = document.getElementById('giftLid');
+            const box = document.getElementById('giftBoxMain');
+            const envelope = document.getElementById('insideEnvelope');
+            const hint = document.getElementById('giftHint');
+
+            box.classList.remove('gift-shake');
+            
+            // Animasi tutup kado melayang ke atas
+            lid.style.transform = 'translateY(-40px) rotate(-10deg) scale(0.9)';
+            lid.style.opacity = '0';
+
+            // Tampilkan amplop naik perlahan dari kado
+            setTimeout(() => {
+                envelope.style.display = 'block';
+                envelope.animate([
+                    { transform: 'translateY(50px) scale(0.5)', opacity: 0 },
+                    { transform: 'translateY(0) scale(1.1)', opacity: 1 },
+                    { transform: 'translateY(0) scale(1)', opacity: 1 }
+                ], {
+                    duration: 800,
+                    fill: 'forwards'
+                });
+                hint.innerText = "YAY! Sekarang ketuk Amplopnya! ✉️";
+            }, 600);
+        }
+
+        function openEnvelope(event) {
+            event.stopPropagation(); // Mencegah terpicunya kembali fungsi kado
+            const env = document.getElementById('insideEnvelope');
+            
+            env.animate([
+                { transform: 'scale(1) rotate(0)' },
+                { transform: 'scale(1.3) rotate(360deg)', opacity: 0 }
+            ], {
+                duration: 600,
+                fill: 'forwards'
+            });
+
+            setTimeout(() => {
+                nextPage(7);
+                triggerLetterReveal();
+            }, 650);
+        }
+
+        // --- HALAMAN 7: ANIMASI PENULISAN SURAT NAYA ---
+        function triggerLetterReveal() {
+            const paragraphs = document.querySelectorAll('.letter-paragraph');
+            let delay = 300;
+
+            paragraphs.forEach((p, index) => {
+                setTimeout(() => {
+                    p.classList.add('reveal');
+                    
+                    // Otomatis scroll ke bawah seiring bertambahnya teks
+                    const paper = document.querySelector('.letter-paper');
+                    paper.scrollTo({
+                        top: paper.scrollHeight,
+                        behavior: 'smooth'
+                    });
+
+                    // Tampilkan tombol final saat baris terakhir selesai
+                    if (index === paragraphs.length - 1) {
+                        setTimeout(() => {
+                            document.getElementById('btnNextH7').style.display = 'block';
+                        }, 1000);
+                    }
+                }, delay);
+                delay += 1200; // jeda antar baris agar nyaman dibaca
+            });
+        }
+
+        // --- HALAMAN ENDING: TRANSISI NIGHT SKY & KEMBANG API ---
+        let fireworksActive = false;
+        let fwCanvas, fwCtx, particlesArray = [];
+
+        function finishJourney() {
+            nextPage('Ending');
+            document.getElementById('storyContainer').classList.add('night-mode');
+            
+            // Mulai efek Kembang Api
+            fireworksActive = true;
+            setupFireworks();
+            loopFireworks();
+        }
+
+        function setupFireworks() {
+            fwCanvas = document.getElementById('fireworksCanvas');
+            fwCtx = fwCanvas.getContext('2d');
+            
+            // Menyesuaikan ukuran canvas
+            const storyBox = document.getElementById('storyContainer');
+            fwCanvas.width = storyBox.clientWidth;
+            fwCanvas.height = storyBox.clientHeight;
+        }
+
+        class FireworkParticle {
+            constructor(x, y, color) {
+                this.x = x;
+                this.y = y;
+                this.color = color;
+                this.radius = Math.random() * 2.5 + 1.5;
+                this.velocity = {
+                    x: (Math.random() - 0.5) * 8,
+                    y: (Math.random() - 0.5) * 8
+                };
+                this.alpha = 1;
+                this.decay = Math.random() * 0.015 + 0.01;
+            }
+
+            draw() {
+                fwCtx.save();
+                fwCtx.globalAlpha = this.alpha;
+                fwCtx.beginPath();
+                fwCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                fwCtx.fillStyle = this.color;
+                fwCtx.fill();
+                fwCtx.restore();
+            }
+
+            update() {
+                this.x += this.velocity.x;
+                this.y += this.velocity.y;
+                this.velocity.y += 0.05; // Gaya Gravitasi tipis
+                this.alpha -= this.decay;
+            }
+        }
+
+        function createExplosion(x, y) {
+            const colors = ['#FF1493', '#00FFFF', '#FFEB3B', '#9C27B0', '#4CAF50', '#FF5722'];
+            const chosenColor = colors[Math.floor(Math.random() * colors.length)];
+            for (let i = 0; i < 40; i++) {
+                particlesArray.push(new FireworkParticle(x, y, chosenColor));
+            }
+        }
+
+        function loopFireworks() {
+            if (!fireworksActive) return;
+            
+            // Clear trail effect
+            fwCtx.fillStyle = 'rgba(26, 18, 53, 0.2)';
+            fwCtx.fillRect(0, 0, fwCanvas.width, fwCanvas.height);
+
+            // Spawn kembang api acak
+            if (Math.random() < 0.06) {
+                const x = Math.random() * fwCanvas.width;
+                const y = Math.random() * (fwCanvas.height * 0.6);
+                createExplosion(x, y);
+            }
+
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+                if (particlesArray[i].alpha <= 0) {
+                    particlesArray.splice(i, 1);
+                    i--;
+                }
+            }
+
+            requestAnimationFrame(loopFireworks);
+        }
+
+        // --- SISTEM RESET ULANG JALAN CERITA ---
+        function resetJourney() {
+            // Hentikan kembang api
+            fireworksActive = false;
+            particlesArray = [];
+            const fwCanvas = document.getElementById('fireworksCanvas');
+            const fwCtx = fwCanvas.getContext('2d');
+            fwCtx.clearRect(0, 0, fwCanvas.width, fwCanvas.height);
+            
+            // Hentikan musik jika masih menyala
+            if (isMusicPlaying) {
+                togglePlayMusic();
+            }
+
+            // Kembalikan tema story container
+            document.getElementById('storyContainer').classList.remove('night-mode');
+
+            // Reset seluruh state halaman ke awal
+            currentPinInput = '';
+            document.querySelectorAll('.pin-dot').forEach(dot => dot.classList.remove('active'));
+            document.getElementById('pinMsg').innerText = "";
+            
+            // Sembunyikan tombol-tombol berjenjang
+            document.getElementById('btnNextH2').style.display = 'none';
+            document.getElementById('btnNextH3').style.display = 'none';
+            document.getElementById('btnNextH5').style.display = 'none';
+            document.getElementById('btnNextH7').style.display = 'none';
+
+            // Reset Halaman Kado & Amplop
+            isGiftOpened = false;
+            document.getElementById('giftLid').style.transform = 'none';
+            document.getElementById('giftLid').style.opacity = '1';
+            document.getElementById('giftBoxMain').classList.add('gift-shake');
+            document.getElementById('insideEnvelope').style.display = 'none';
+            document.getElementById('giftHint').innerText = "Tap Box! 🎁";
+
+            // Reset Halaman Surat
+            document.querySelectorAll('.letter-paragraph').forEach(p => p.classList.remove('reveal'));
+
+            // Reset Lilin Kue
+            isCandleBlown = false;
+            document.getElementById('mainFlame').classList.remove('off');
+            document.getElementById('candleSmoke').classList.remove('puff');
+
+            // Navigasi ke halaman 1
+            const activePage = document.querySelector('.page.active');
+            if (activePage) activePage.classList.remove('active');
+            
+            const firstPage = document.getElementById('page1');
+            firstPage.classList.add('active');
+            firstPage.style.opacity = '1';
+            firstPage.style.transform = 'translateY(0)';
+        }
+    </script>
+</body>
+</html>
